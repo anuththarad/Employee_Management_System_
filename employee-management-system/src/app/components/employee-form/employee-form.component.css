@@ -1,0 +1,35 @@
+.employee-form-container {
+  background-color: white; 
+  min-height: 100vh; 
+  padding-top: 50px;
+}
+
+.employee-card {
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+.employee-card-header {
+  background-color:#081F44; 
+  color: white;
+}
+
+.btn-save {
+  background-color: #4569AD;  
+  color: white;
+  border: none;
+}
+
+.btn-save:hover {
+  background-color: #34538C;
+}
+
+.btn-cancel {
+  background-color: #fff9f0;
+  color: black;  
+  border: none;
+}
+
+.btn-cancel:hover {
+  background-color: #f0e6d9; 
+}

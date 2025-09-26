@@ -1,0 +1,71 @@
+:host {
+  display: block;
+  background-size: cover;
+  min-height: 100vh;
+  padding: 20px;
+  background-color: white; 
+}
+
+.employee-container {
+  background: #34538C; 
+  padding: 25px;
+  border-radius: 12px;
+  
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th {
+  background-color: #041035;  
+  color:white;
+  padding: 10px;
+}
+
+tr:hover {
+  background-color:#34538C;
+}
+
+button {
+  border-radius: 8px;
+  padding: 6px 12px;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+}
+
+button.edit {
+  background-color: #4569AD; 
+  color: white;
+  margin-right: 70px; 
+  padding: 6px 12px;  
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button.edit:hover {
+  background-color: #34538C; 
+}
+
+button.delete {
+  background-color: #B7C3E8;
+  color: black;
+  padding: 6px 12px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button.delete:hover {
+  background-color: #8FB3E2; 
+}
+
+.my-banner {
+  background-size: cover;
+  background-position: center;
+  height: 300px;
+}
