@@ -42,47 +42,35 @@ namespace Employee_Management_System.Controllers
         }
 
 
-        //POST /api/employees → Add a new employee
+        // POST /api/employees → Add a new employee
         [HttpPost]
-        public async Task<ActionResult<Employee>> AddEmployee(Employee employee)
+        public async Task<IActionResult> AddEmployee(Employee employee)
         {
-            _context.Employee_Management_System.Add(employee); 
+            _context.Employee_Management_System.Add(employee);
             await _context.SaveChangesAsync();
 
-
-            return CreatedAtAction("GetEmployee", new { id = employee.Id }, employee);
+            return Ok(new { message = "Employee added successfully" });
         }
 
 
-        // PUT /api/employees/{id} → Update an existing employee 
+        //PUT /api/employees/{id} → Update an existing employee
         [HttpPut("{id}")]
         public async Task<IActionResult> UpdateEmployee(int id, Employee employee)
         {
-            if (id != employee.Id)
-            {
-                return BadRequest(); 
-            }
+            var existing = await _context.Employee_Management_System.FindAsync(id);
+            if (existing == null)
+                return NotFound();
 
-            _context.Entry(employee).State = EntityState.Modified;
+            existing.Name = employee.Name;
+            existing.Position = employee.Position;
+            existing.Department = employee.Department;
+            existing.Salary = employee.Salary;
 
-            try
-            {
-                await _context.SaveChangesAsync(); 
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!EmployeeExists(id))
-                {
-                    return NotFound(); 
-                }
-                else
-                {
-                    throw; 
-                }
-            }
+            await _context.SaveChangesAsync();
 
-            return NoContent(); 
+            return Ok(new { message = "Employee updated successfully" });
         }
+
 
 
         //DELETE /api/employees/{id} → Delete an employee
